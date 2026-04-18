@@ -1,0 +1,21 @@
+# GrabAByte Flask Backend — Python Dependencies
+# ================================================
+# Install with: pip install -r requirements.txt
+
+# Web framework
+Flask==3.1.1
+
+# Cross-Origin Resource Sharing — lets the React frontend call the API
+Flask-Cors==5.0.1
+
+# MySQL driver (pure-Python, no native libs required)
+mysql-connector-python==9.3.0
+
+# Environment variable loading from .env files
+python-dotenv==1.1.1
+
+# Password hashing (bcrypt)
+bcrypt==4.3.0
+
+# Production WSGI server
+gunicorn==23.0.0
