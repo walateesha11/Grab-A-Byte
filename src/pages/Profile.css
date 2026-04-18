@@ -1,0 +1,87 @@
+.profile-page { min-height: 100vh; background: var(--cream); }
+.profile-hero { padding: 3rem 5rem 2rem; background: var(--black); border-bottom: var(--border-brutal); }
+.profile-hero h1 { font-size: clamp(3rem, 8vw, 6rem); color: var(--pastel-yellow); margin-bottom: 0.25rem; }
+.profile-hero p { font-family: var(--font-display); font-size: 1.1rem; color: var(--kelly-green); letter-spacing: 3px; }
+
+.profile-content { max-width: 1200px; margin: 0 auto; padding: 2.5rem; }
+
+/* ── Grid ── */
+.profile-top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+.profile-card { 
+  background: var(--white); 
+  border: var(--border-brutal); 
+  box-shadow: var(--shadow-brutal); 
+  padding: 2rem; 
+  display: flex;
+  flex-direction: column;
+}
+.profile-card h2 { font-size: 2rem; color: var(--black); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: var(--border-brutal-thin); }
+
+/* User Card */
+.profile-account-card .user-detail { 
+  display: flex; 
+  justify-content: space-between; 
+  padding: 0.75rem 0; 
+  font-family: var(--font-body); 
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  border-bottom: 1px solid #eee; 
+  width: 100%;
+}
+.detail-label { font-weight: 800; letter-spacing: 1px; color: var(--off-black); font-size: 0.8rem; }
+.sql-ref { margin-top: auto; padding-top: 1.5rem; font-size: 0.7rem; color: var(--dark-gray); font-family: var(--font-body); }
+.sql-ref code { font-family: 'Courier New', monospace; color: var(--kelly-green); background: #f0f0f0; padding: 1px 4px; }
+
+/* Wallet Card */
+.wallet-card { background: var(--kelly-green) !important; color: var(--white); }
+.wallet-card h2 { color: var(--white); border-bottom-color: rgba(255,255,255,0.3); }
+.wallet-balance { text-align: center; margin: 1rem 0 1.5rem; }
+.balance-symbol { font-family: var(--font-display); font-size: 2.5rem; vertical-align: top; }
+.balance-amount { font-family: var(--font-display); font-size: 4rem; }
+.fund-form { display: flex; gap: 0.75rem; }
+.fund-input { flex: 1; background: var(--white) !important; color: var(--black) !important; }
+.fund-btn { white-space: nowrap; font-size: 1rem !important; padding: 0.75rem 1.25rem !important; }
+.fund-success { margin-top: 0.75rem; font-family: var(--font-display); font-size: 1rem; color: var(--pastel-yellow); letter-spacing: 2px; }
+.wallet-card .sql-ref { color: rgba(255,255,255,0.7); }
+.wallet-card .sql-ref code { background: rgba(0,0,0,0.2); color: var(--pastel-yellow); }
+
+/* Orders */
+.orders-card { margin-bottom: 2rem; }
+.orders-sql { font-size: 0.72rem; color: var(--dark-gray); font-family: var(--font-body); margin-bottom: 1.5rem; }
+.orders-sql code { font-family: 'Courier New', monospace; color: var(--kelly-green); background: #f0f0f0; padding: 1px 4px; word-break: break-all; }
+.no-orders { text-align: center; padding: 3rem 0; }
+.no-orders p { font-family: var(--font-body); font-weight: 600; margin-bottom: 1.5rem; color: var(--off-black); }
+
+.orders-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.order-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem; border: var(--border-brutal-thin); background: var(--cream);
+  transition: transform 0.12s;
+}
+.order-row:hover { transform: translate(-2px, -2px); }
+.order-row-left { flex: 1; min-width: 0; }
+.order-id { font-family: var(--font-display); font-size: 1.1rem; color: var(--black); margin-bottom: 0.25rem; }
+.order-items-summary { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.order-item-chip { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; background: var(--white); border: 2px solid var(--black); padding: 2px 8px; }
+.order-row-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+.order-total { font-family: var(--font-display); font-size: 1.3rem; color: var(--black); }
+.order-date { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: var(--dark-gray); }
+
+/* Status Badges */
+.status-badge {
+  font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 1px;
+  padding: 0.3rem 0.75rem; border: 2px solid var(--black); white-space: nowrap;
+}
+.status-confirmed { background: var(--pastel-yellow); color: var(--black); }
+.status-preparing { background: var(--bright-orange); color: var(--white); }
+.status-out-for-delivery { background: var(--hot-pink); color: var(--white); }
+.status-delivered { background: var(--kelly-green); color: var(--white); }
+.status-cancelled { background: var(--dark-gray); color: var(--white); }
+
+@media (max-width: 900px) {
+  .profile-hero { padding: 2rem 1.5rem; }
+  .profile-content { padding: 1.5rem; }
+  .profile-top-grid { grid-template-columns: 1fr; }
+  .order-row { flex-direction: column; align-items: stretch; }
+  .order-row-right { justify-content: space-between; flex-wrap: wrap; }
+}

@@ -1,0 +1,162 @@
+/* ==============================================
+   GRABABYTE — RETRO BRUTALIST DESIGN SYSTEM
+   ============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=Shrikhand&display=swap');
+
+:root {
+  /* ── Color Palette ── */
+  --kelly-green: #3CCF4E;
+  --bright-orange: #FF6B35;
+  --pastel-yellow: #FFE156;
+  --cream: #FFF8E7;
+  --hot-pink: #FF2D7B;
+  --black: #1A1A1A;
+  --white: #FFFFFF;
+  --off-black: #2D2D2D;
+  --dark-gray: #444444;
+
+  /* ── Typography ── */
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-groovy: 'Shrikhand', 'Anton', Impact, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* ── Extended Palette (Home v2) ── */
+  --lime-green: #C9F135;
+  --forest-green: #1A3A1A;
+
+  /* ── Brutalist Tokens ── */
+  --border-brutal: 4px solid var(--black);
+  --border-brutal-thin: 3px solid var(--black);
+  --shadow-brutal: 8px 8px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-sm: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-lg: 12px 12px 0px 0px rgba(0,0,0,1);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: auto; overflow-x: hidden; max-width: 100vw; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--black);
+  overflow-x: hidden;
+  max-width: 100vw;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ==============================================
+   BRUTALIST BUTTONS
+   ============================================== */
+.brutal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 1rem 2.5rem;
+  border: var(--border-brutal);
+  background-color: var(--pastel-yellow);
+  color: var(--black);
+  cursor: pointer;
+  box-shadow: var(--shadow-brutal);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  white-space: nowrap;
+}
+
+.brutal-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+}
+
+.brutal-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+}
+
+.brutal-btn.green  { background-color: var(--kelly-green);    color: var(--white); }
+.brutal-btn.orange { background-color: var(--bright-orange);  color: var(--white); }
+.brutal-btn.pink   { background-color: var(--hot-pink);       color: var(--white); }
+.brutal-btn.black  { background-color: var(--black);          color: var(--pastel-yellow); }
+
+.brutal-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: var(--shadow-brutal) !important;
+}
+
+/* ==============================================
+   LAYOUT UTILITIES
+   ============================================== */
+.page-container {
+  padding-top: 0; /* Space removed from all pages */
+  min-height: 100vh;
+}
+
+.page-container.home-layout {
+  padding-top: 0; 
+}
+
+/* Home page is special because it has full-screen sections */
+.gb-home .hero-panel {
+  padding-top: 0; /* Remove extra internal padding too */
+}
+
+
+/* ==============================================
+   LEGACY NAVBAR CLEANUP
+   ============================================== */
+/* Removed global navbar styles to favor component-specific Navbar.css */
+
+@media (max-width: 768px) {
+  .page-container {
+    padding-top: 0;
+  }
+}
+
+/* ==============================================
+   MARQUEE COMPONENT
+   ============================================== */
+.marquee {
+  overflow: hidden;
+  background: var(--black);
+  border-top: 4px solid var(--black);
+  padding: 1.2rem 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee-scroll 22s linear infinite;
+  will-change: transform;
+}
+.marquee-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--lime-green);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-right: 2rem;
+}
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

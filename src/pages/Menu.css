@@ -1,0 +1,188 @@
+/* ==============================================
+   MENU PAGE — BRUTALIST GRID
+   ============================================== */
+
+.menu-page {
+  min-height: 100vh;
+  background-color: var(--cream);
+}
+
+/* ── Header ── */
+.menu-hero {
+  padding: 4rem 5rem 3rem;
+  background-color: var(--black);
+  border-bottom: var(--border-brutal);
+}
+
+.menu-hero h1 {
+  font-size: clamp(4rem, 10vw, 8rem);
+  color: var(--pastel-yellow);
+  margin-bottom: 0.3rem;
+}
+
+.menu-hero p {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--hot-pink);
+  letter-spacing: 4px;
+}
+
+/* ── Grid Container ── */
+.menu-grid-container {
+  padding: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+/* ── Card ── */
+.menu-card {
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  overflow: hidden;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.menu-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-brutal-lg);
+}
+
+.menu-card.added {
+  animation: card-shake 0.35s ease;
+}
+
+@keyframes card-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-1deg); }
+  40% { transform: translateX(6px) rotate(1deg); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* ── Card Image ── */
+.card-img-wrap {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: var(--border-brutal);
+  background: rgba(255, 255, 255, 0.35);
+  padding: 1rem;
+}
+
+.card-img {
+  height: 180px;
+  width: 180px;
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.card-emoji {
+  font-size: 7rem;
+  line-height: 1;
+  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.menu-card:hover .card-emoji {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.menu-card:hover .card-img {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ── Card Info ── */
+.card-info {
+  padding: 1.5rem;
+}
+
+.card-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--off-black);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Card Bottom ── */
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.card-price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.card-btn {
+  font-size: 1rem !important;
+  padding: 0.6rem 1.5rem !important;
+  box-shadow: var(--shadow-brutal-sm) !important;
+}
+
+.btn-added {
+  background-color: var(--kelly-green) !important;
+  color: var(--white) !important;
+}
+
+/* ── Stock Indicator ── */
+.stock-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--off-black);
+  text-transform: uppercase;
+}
+
+.stock-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--kelly-green);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 1.5s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .menu-hero {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .menu-grid-container {
+    padding: 1.5rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}

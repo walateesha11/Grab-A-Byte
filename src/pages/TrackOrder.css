@@ -1,0 +1,80 @@
+.track-page { min-height: 100vh; background: var(--cream); }
+.track-hero { padding: 3rem 5rem 2rem; background: var(--pastel-yellow); border-bottom: var(--border-brutal); }
+.track-hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); color: var(--black); margin-bottom: 0.25rem; }
+.track-hero p { font-family: var(--font-display); font-size: 1.1rem; color: var(--off-black); letter-spacing: 3px; }
+
+.track-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh; gap: 1rem; }
+.track-empty h2 { font-size: 3rem; color: var(--black); }
+.track-empty p { font-family: var(--font-body); font-weight: 600; color: var(--off-black); }
+
+.track-content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+/* ── Stepper ── */
+.track-stepper {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 3rem; position: relative;
+}
+.step { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+.step-dot {
+  width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 1.2rem;
+  border: var(--border-brutal); background: var(--white); color: var(--dark-gray);
+  position: relative; z-index: 2; transition: all 0.3s;
+}
+.step.complete .step-dot { background: var(--kelly-green); color: var(--white); }
+.step.current .step-dot { background: var(--pastel-yellow); color: var(--black); box-shadow: var(--shadow-brutal-sm); animation: pulse-dot-track 1.5s infinite; }
+@keyframes pulse-dot-track { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+.step-label {
+  font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 1px;
+  color: var(--dark-gray); margin-top: 0.5rem; text-align: center; max-width: 100px;
+}
+.step.complete .step-label { color: var(--kelly-green); }
+.step.current .step-label { color: var(--black); font-size: 0.85rem; }
+.step-line {
+  position: absolute; top: 24px; left: 50%; width: 100%;
+  height: 4px; background: #ddd; z-index: 1;
+}
+.step.complete .step-line { background: var(--kelly-green); }
+
+/* SQL Box */
+.track-sql-box {
+  background: var(--off-black); border: var(--border-brutal); box-shadow: var(--shadow-brutal);
+  padding: 1.5rem; margin-bottom: 2rem;
+}
+.track-sql-box h3 { font-family: var(--font-display); font-size: 1rem; color: var(--kelly-green); letter-spacing: 2px; margin-bottom: 0.5rem; }
+.track-sql-box code { font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--pastel-yellow); }
+
+/* Order Details */
+.track-details {
+  background: var(--white); border: var(--border-brutal); box-shadow: var(--shadow-brutal); padding: 2rem;
+}
+.track-details h3 { font-size: 1.5rem; color: var(--black); margin-bottom: 1rem; }
+.track-items { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.track-item {
+  display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0;
+  border-bottom: 1px solid #eee; font-family: var(--font-body); font-weight: 600;
+}
+.track-item-icon { font-size: 1.5rem; }
+.track-item-name { flex: 1; }
+.track-item-qty { color: var(--dark-gray); }
+.track-item-price { font-family: var(--font-display); font-size: 1.1rem; min-width: 70px; text-align: right; }
+.track-total {
+  display: flex; justify-content: space-between; padding-top: 1rem;
+  border-top: var(--border-brutal-thin); font-family: var(--font-display); font-size: 1.5rem; color: var(--black);
+}
+
+/* Delivered */
+.delivered-box {
+  text-align: center; margin-top: 2rem; padding: 2rem;
+  background: var(--kelly-green); border: var(--border-brutal); box-shadow: var(--shadow-brutal);
+}
+.delivered-box h2 { font-size: 3rem; color: var(--white); margin-bottom: 0.5rem; }
+.delivered-box p { font-family: var(--font-body); font-weight: 700; color: var(--white); margin-bottom: 1.5rem; }
+
+@media (max-width: 768px) {
+  .track-hero { padding: 2rem 1.5rem; }
+  .track-content { padding: 1.5rem; }
+  .track-stepper { flex-direction: column; gap: 0.5rem; }
+  .step { flex-direction: row; gap: 0.75rem; }
+  .step-line { display: none; }
+}
